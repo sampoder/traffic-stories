@@ -21,11 +21,11 @@ async function update(camera_id) {
   console.log(targetCamera);
   const response = await fetch(targetCamera[0].image);
   const buffer = await response.buffer();
-  if (!fs.existsSync(`./${camera_id}`)) {
-    fs.mkdirSync(`./${camera_id}`);
+  if (!fs.existsSync(`./public/${camera_id}`)) {
+    fs.mkdirSync(`./public/${camera_id}`);
   }
-  console.log(`./${camera_id}/${targetCamera[0].timestamp}.jpg`);
-  fs.writeFile(`./${camera_id}/${targetCamera[0].timestamp}.jpg`, buffer, () =>
+  console.log(`./public/${camera_id}/${targetCamera[0].timestamp}.jpg`);
+  fs.writeFile(`./public/${camera_id}/${targetCamera[0].timestamp}.jpg`, buffer, () =>
     console.log("finished downloading!")
   );
 
@@ -53,16 +53,16 @@ async function update(camera_id) {
     if (targetCamera.length > 0) {
       const response = await fetch(targetCamera[0].image);
       const buffer = await response.buffer();
-      if (!fs.existsSync(`./${camera_id}`)) {
-        fs.mkdirSync(`./${camera_id}`);
+      if (!fs.existsSync(`./public/${camera_id}`)) {
+        fs.mkdirSync(`./public/${camera_id}`);
       }
-      if (fs.existsSync(`./${camera_id}/${targetCamera[0].timestamp}.jpg`)) {
-        console.log(`Finished at ./${camera_id}/${targetCamera[0].timestamp}.jpg`)
+      if (fs.existsSync(`./public/${camera_id}/${targetCamera[0].timestamp}.jpg`)) {
+        console.log(`Finished at ./public/${camera_id}/${targetCamera[0].timestamp}.jpg`)
         break
       }
-      console.log(`./${camera_id}/${targetCamera[0].timestamp}.jpg`);
+      console.log(`./public/${camera_id}/${targetCamera[0].timestamp}.jpg`);
       fs.writeFile(
-        `./${camera_id}/${targetCamera[0].timestamp}.jpg`,
+        `./public/${camera_id}/${targetCamera[0].timestamp}.jpg`,
         buffer,
         () => console.log("finished downloading!")
       );
