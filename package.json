@@ -1,0 +1,12 @@
+{
+  "name": "traffic-stories",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Sam Poder <39828164+sampoder@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.20",
+    "luxon": "^1.25.0",
+    "node-fetch": "^2.6.1"
+  }
+}
